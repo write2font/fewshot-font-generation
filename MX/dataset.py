@@ -1,3 +1,4 @@
+import unicodedata
 """
 MX-Font
 Copyright (c) 2021-present NAVER Corp.

@@ -306,7 +306,7 @@ def infer_FUNIT(gen, save_dir, source_path, source_ext, gen_chars, key_ref_dict,
 def load_model(args, cfg, gen_model):
     g_kwargs = cfg.get('gen', {})
     gen = gen_model(**g_kwargs).cuda()
-    weight = torch.load(args.weight)
+    weight = torch.load(args.weight, weights_only=False)
     if "generator_ema" in weight:
         weight = weight["generator_ema"]
     gen.load_state_dict(weight)

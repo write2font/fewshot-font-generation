@@ -1,9 +1,9 @@
 dset:
   test:
-    extension: ttf
-    data_dir: data_example/kor/ttf
+    extension: png
+    data_dir: /content/drive/MyDrive/font_project/my_handwriting/files_for_test
     source_path: data/kor/source.ttf
     source_ext: ttf
-    ref_chars: data/kor/ref_chars.json
-    gen_chars: data/kor/gen_chars.json
+    ref_chars: /content/drive/MyDrive/font_project/my_handwriting/ref_chars.json
+    gen_chars: /content/drive/MyDrive/font_project/my_handwriting/gen_chars.json
 

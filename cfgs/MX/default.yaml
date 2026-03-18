@@ -24,7 +24,7 @@ trainer:
   ac_w: 1.0
   ac_gen_w: 1.0
   ac_cross_w: 0.0
-  indp_exp_w: 1.0
+  indp_exp_w: 0.0
   indp_fact_w: 1.0
   # Display
   save: all-last
@@ -34,7 +34,7 @@ trainer:
   tb_freq: 100
 
 gen:
-  n_experts: 6
+  n_experts: 3
   n_emb: 2
   
 dset:
