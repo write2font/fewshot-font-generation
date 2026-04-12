@@ -1,5 +1,5 @@
 dset:
   test:
-    data_dir: /content/drive/MyDrive/font_project/my_handwriting/files_for_test
-    source_font: /content/drive/MyDrive/fewshot-font-generation/data/kor/source.ttf
-    gen_chars_file: /content/drive/MyDrive/font_project/my_handwriting/gen_chars.json
+    data_dir: write2font/ttf
+    source_font: data/kor/source.ttf
+    gen_chars_file: write2font/gen_chars.json
