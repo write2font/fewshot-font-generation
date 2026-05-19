@@ -4,6 +4,7 @@ __pycache__/
 
 # Jupyter Notebook
 .ipynb_checkpoints/
+write2font/results/
 
 # PyTorch 모델 가중치 파일 제외
 *.pth
