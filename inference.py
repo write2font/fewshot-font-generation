@@ -40,7 +40,7 @@ def setup_eval_config(args, left_argv={}):
         cfg.dset.test.ref_chars = ref_chars
 
     if cfg.dset.test.gen_chars is not None:
-        cfg.dset.test.gen_chars = json.load(open(cfg.dset.test.gen_chars))
+        cfg.dset.test.gen_chars = json.load(open(cfg.dset.test.gen_chars, encoding='utf-8'))
 
     args.result_dir = Path(args.result_dir)
     args.model = args.model.lower()
@@ -76,30 +76,13 @@ def setup_eval_config(args, left_argv={}):
     elif "mx" in args.model:
         from MX.models import Generator
         infer_func = infer_MX
-        
-        # [핵심 수정] 융합에 사용할 3가지 기저 폰트의 경로를 직접 리스트로 선언합니다.
-        # 실제 서버에 있는 고딕, 명조 등의 폰트 경로로 알맞게 변경해 주세요!
-        source_paths_list = [
-            "data/kor/BareunBatangM.ttf"
-            "data/kor/NanumSquareRoundR.ttf",     # 기저 폰트 1 (예: 고딕)
-            "data/kor/NotoSansKR-Regular",   # 기저 폰트 2 (예: 명조)
-            "data/kor/NanumBareunHippie.ttf"      # 기저 폰트 3 (예: 바탕)
-        ]
+        source_path = cfg.dset.test.source_path
+        source_ext = cfg.dset.test.source_ext
 
         infer_args = {
-            "source_paths": source_paths_list, # 리스트를 넘겨줍니다.
-            # "source_ext"는 더 이상 infer_MX에서 받지 않으므로 삭제합니다.
+            "source_path": source_path,
+            "source_ext": source_ext,
         }
-    # elif "mx" in args.model:
-    #     from MX.models import Generator
-    #     infer_func = infer_MX
-    #     source_path = cfg.dset.test.source_path
-    #     source_ext = cfg.dset.test.source_ext
-
-    #     infer_args = {
-    #         "source_path": source_path,
-    #         "source_ext": source_ext,
-    #     }
 
     else:
         from FUNIT.models.networks import FewShotGen as Generator
